@@ -20,7 +20,7 @@ class VendingMachine {
     private paymentMethod: PaymentMethod[];
     private currentPaymentMethod: PaymentMethodType | null = null;
 
-    private cahsBalanceContainer!: HTMLElement;
+    private cashBalanceContainer!: HTMLElement;
     private cashButtonsContainer!: HTMLElement;
     private drinkButtonsContainer!: HTMLElement;
     private paymentMethodButtonsContainer!: HTMLElement;
@@ -50,7 +50,7 @@ class VendingMachine {
 
     // UI 요소 초기화 
     private initializeUI() {
-        this.cahsBalanceContainer = document.getElementById('cash-balance')!;
+        this.cashBalanceContainer = document.getElementById('cash-balance')!;
         this.cashButtonsContainer = document.getElementById('cash-inputs')!;
         this.drinkButtonsContainer = document.getElementById('drink-buttons')!;
         this.paymentMethodButtonsContainer = document.getElementById('payment-method-select')!;
@@ -118,7 +118,7 @@ class VendingMachine {
         
         this.currentPaymentMethod = null;
         this.cashButtonsContainer.style.display = 'none';
-        this.cahsBalanceContainer.style.display = 'none';
+        this.cashBalanceContainer.style.display = 'none';
         this.returnButton.style.display = 'none';
     }
 
@@ -205,7 +205,7 @@ class VendingMachine {
             if (this.currentPaymentMethod === 'cash' && this.balance === 0) {
                 this.currentPaymentMethod = null;
                 this.cashButtonsContainer.style.display = 'none';
-                this.cahsBalanceContainer.style.display = 'none';
+                this.cashBalanceContainer.style.display = 'none';
                 this.returnButton.style.display = 'none';
             } else {
                 this.showMessage('이미 결제 수단이 선택되었습니다. 거스름돈이나 카드를 반환 후 이용해주세요.');
@@ -219,7 +219,7 @@ class VendingMachine {
         if (type.type === 'cash') {
             this.renderCashButtons();
             this.cashButtonsContainer.style.display = 'flex';
-            this.cahsBalanceContainer.style.display = 'flex';
+            this.cashBalanceContainer.style.display = 'flex';
 
             // 현금일 땐 거스름돈 반환
             this.returnButton.textContent = '거스름돈 반환';
@@ -229,7 +229,7 @@ class VendingMachine {
 
         if (type.type === 'card') {
             this.cashButtonsContainer.style.display = 'none';
-            this.cahsBalanceContainer.style.display = 'none';
+            this.cashBalanceContainer.style.display = 'none';
 
             // 카드일 땐 카드 반환
             this.returnButton.textContent = '카드 반환';
@@ -240,7 +240,7 @@ class VendingMachine {
     
     // 현금 입금 후 잔액 표시 메서드
     private updateCash() {
-        this.cahsBalanceContainer.textContent = `현재 잔액 : ${(this.balance).toLocaleString()}원`;
+        this.cashBalanceContainer.textContent = `현재 잔액 : ${(this.balance).toLocaleString()}원`;
     }
 
     // 메시지 표시 메서드
