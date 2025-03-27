@@ -50,8 +50,10 @@
 ### 옵션 2.
 #### 폴더 내의 index.html 파일을 더블클릭하여 브라우저에서 열거나, 브라우저에서 index.html 파일을 드래그 앤 드롭해서 열기
 
+## 5. 다이어그램 문서 
+diagram 폴더 내의 diagram.html 파일을 더블클릭하여 브라우저에서 열거나, 브라우저에서 diagram.html 파일을 드래그 앤 드롭해서 열기
 
-## 5. 디렉토리 구조
+## 6. 디렉토리 구조
 ```
 seeuno-vending-machine/
 │
@@ -63,5 +65,5 @@ seeuno-vending-machine/
 └── app.ts            # TypeScript 소스 코드
 ```
 
-## 6. 버전
+## 7. 버전
 v1.0.0
