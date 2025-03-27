@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vending Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="vending-machine-container">
+        <!-- 실제 구현 UI-->
+        <div class="vending-machine">
+            <h4 class="vending-machine-title">ProtoPie's Vending Machine</h4> 
+            <!-- 결제 수단 선택 -->
+            <div id="payment-method-select" class="payment-method-select"></div>
+           
+            <!-- 음료 선택 -->
+            <div id="drink-buttons" class="drink-buttons"></div>
+ 
+            <!-- 현금일 경우만 -->
+            <div id="cash-inputs" class="cash-inputs" ></div>
+            <div id="cash-balance" class="cash-balance" >현재 잔액: 0원</div>
+
+            <!-- 거스름돈 및 카드 반환 -->
+            <button id="return-button" class="return-button" style="display: none;"></button> 
+        </div>
+        
+        <!-- 우측 스크린 -->
+        <div class="vending-machine-screen">
+            <div class="vending-machine-screen-content"></div>
+        </div>
+        <div class="vending-machine-lengths">
+            <div class="vending-machine-length-item"></div>
+            <div class="vending-machine-length-item"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

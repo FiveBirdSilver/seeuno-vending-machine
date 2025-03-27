@@ -1,0 +1,329 @@
+@import url('https://static.toss.im/tps/main.css');
+@import url('https://static.toss.im/tps/others.css');
+
+
+* {
+    font-family: 'Toss Product Sans';
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.vending-machine-container {
+    display: flex;
+    position: relative;
+    gap: 10px;
+    background-color: #ff1f1e;
+    border-radius: 16px;
+    padding: 20px 20px 120px 20px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+
+    @media (max-width: 480px) {
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+.vending-machine {
+    background-color: #403e40;  
+    position: relative;
+    min-height: 450px;
+    border-radius: 16px;
+    padding: 24px 12px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.vending-machine-screen {
+    background-color:#111617;
+    border-radius: 16px;
+    min-width: 90px;
+    max-height: 150px;
+    padding: 15px 10px;
+
+    @media (max-width: 480px) {
+        width: 50px;
+    }
+}
+
+.vending-machine-screen-content {
+    background-color: #248cba;
+    height: 60%;
+}
+
+/* 자판기 다리 */
+.vending-machine-lengths{
+    position: absolute;
+    bottom: -20px;
+    left: 35px;
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    height: 20px;
+}
+
+.vending-machine-length-item {
+    background-color: #111617;
+    width: 20px;
+    height: 20px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* 자판기 제목 */
+.vending-machine-title{
+    position: absolute;
+    top: -45px;
+    background: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    border: 4px solid #000;
+    max-width: 350px;
+    transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    transform: rotateX(10deg) rotateY(-10deg);
+    perspective: 1000px;
+    box-shadow: 10px 10px 0 #000;
+}
+
+/* 결제 수단 선택 */
+.payment-method-select{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+/* 푸시 스타일 버튼  */
+.payment-method-button {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+}
+   
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform
+       600ms
+       cubic-bezier(.3, .7, .4, 1);
+}
+   
+.edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+       to left,
+       hsl(340deg 100% 16%) 0%,
+       hsl(340deg 100% 32%) 8%,
+       hsl(340deg 100% 32%) 92%,
+       hsl(340deg 100% 16%) 100%
+     );
+}
+   
+.front {
+    display: block;
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: .925rem;
+    color: white;
+    background: hsl(345deg 100% 47%);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform
+       600ms
+       cubic-bezier(.3, .7, .4, 1);
+}
+   
+.payment-method-button:hover {
+    filter: brightness(110%);
+}
+   
+.payment-method-button:hover .front {
+    transform: translateY(-6px);
+    transition: transform
+       250ms
+       cubic-bezier(.3, .7, .4, 1.5);
+}
+   
+.payment-method-button:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+   
+.payment-method-button:hover .shadow {
+    transform: translateY(4px);
+    transition: transform
+       250ms
+       cubic-bezier(.3, .7, .4, 1.5);
+}
+   
+.payment-method-button:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+}
+   
+.payment-method-button:focus:not(:focus-visible) {
+    outline: none;
+}
+/*********** ***********/ 
+
+
+/* 현금 잔액 */
+.cash-balance {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    margin: 0 20px;
+    font-size: 0.875rem;
+    border-radius: 9999px;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    color: #fff;
+    display: none;
+    min-width: 200px;
+    justify-content: center;
+}
+
+/* 현금 금액 버튼 */
+.cash-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 200px;
+    justify-content: center;
+}
+
+.cash-inputs button {
+    color: #fff;
+    border-radius: 5px;
+    padding: 4px 8px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    font-size: 0.875rem;
+}
+
+/* 음료 버튼 */
+.drink-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.drink-buttons button{
+    color: #ecf0f1;
+    background-color: #e67e22;
+    border: 1px solid #f39c12;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px;
+    box-shadow: 0px 6px 0px #d35400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-width: 100px;
+}
+  
+.drink-buttons button:active {
+    box-shadow: 0px 2px 0px #d35400;
+    position: relative;
+    top: 2px;
+}
+
+.drink-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.drink-name {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.drink-price {
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 16px;
+    padding: 4px 8px;
+    background-color: #4CAF50;
+}
+
+.drink-stock {
+    font-size: 0.725rem;
+    color: #666;
+}
+
+/* 반환 버튼 */
+.return-button {
+    position: absolute;
+    bottom: 20px;
+}
+  
+.return-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 0.875rem;
+    align-items: center;
+    border-radius: 4px;
+    padding: 4px 16px;
+    color: #ddd;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(143, 142, 142, 0.15) !important;
+    background: #000000;
+  }
+  
+  
+.return-button:hover {
+    background: #2b2a2a;
+  }
+  
