@@ -25,7 +25,7 @@
   cd seeuno-vending-machine
 ```
 
-## 4. 프로젝트 실행하기
+## 4. 프로젝트 실행하기 (2가지 옵션)
 ### 옵션 1.
 #### Step 1: 필요한 프로그램 설치
 1. [Node.js 공식 웹사이트](https://nodejs.org/)에 방문
